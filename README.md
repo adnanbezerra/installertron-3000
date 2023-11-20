@@ -25,6 +25,8 @@ source ~/.bashrc
 nvm install --lts
 ```
 
+At last, I'd like to mention that this project was inspired by [Git Conventional CLI](https://github.com/fsrocha-dev/git-conventional-cli), which was made by a former teacher of mine. You will notice plenty similarities with what he created, and notice that I basically just copied him, to some extent.
+
 ***
 
 ## :computer:	 Technologies used
