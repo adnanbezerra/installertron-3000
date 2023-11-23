@@ -1,4 +1,3 @@
-import { Command } from "commander";
 import boxen from "boxen";
 import inquirer from "inquirer";
 import BashCommands from "./bashCommands/BashCommands.js";
