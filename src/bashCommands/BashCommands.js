@@ -1,10 +1,6 @@
-import { exec, execSync } from 'child_process'
-import PrintTable from '../helpers/PrintTable.js'
-import chalk from 'chalk'
+import { execSync } from 'child_process'
 
 export default class BashCommands {
-  #print = new PrintTable();
-  #PRIMARY_COLOR = '#D19A66';
   #JAVA = `
     sudo apt install default-jre &&
     sudo apt install default-jdk &&
@@ -39,59 +35,43 @@ export default class BashCommands {
     sudo snap install code --classic
   `
 
+  executer(command) {
+    this.execCommand(command);
+
+    console.log("Deu bom!");
+  } 
+
   execCommand(install) {
     let output;
+    console.log(install);
 
     switch (install) {
-      case 'java':
+      case 'Install Java':
         output = execSync(this.#JAVA).toString();
         break;
 
-      case 'on_rails':
+      case 'Install Ruby on Rails':
         output = execSync(this.#ON_RAILS).toString();
         break;
 
-      case 'git':
+      case 'Install Git':
         output = execSync(this.#GIT).toString();
         break;
 
-      case 'postgres':
+      case 'Install Postgres':
         output = execSync(this.#POSTGRES).toString();
         break;
 
-      case 'vscode':
-        output = execSync(this.#VS_CODE).toString;
+      case 'Install VSCode':
+        output = execSync(this.#VS_CODE).toString();
         break;
 
       default:
         break;
+
     }
-
-    this.#print.successTable(chalk.hex(this.#PRIMARY_COLOR)('Commit successfully'), this.#formatSuccessCommitOutput(output));
-  }
-
-  bashExecCommand(command) {
-    const output = execSync(command).toString();
+  
     return output.split('\n').filter(Boolean);
-  }
-
-  #formatSuccessCommitOutput(output) {
-    const regex = /^\s*\[([^\]]+)\]\s*([^ ]+ [^ ]+)(.*)/
-    const match = regex.exec(output[0])
-    const [branch = ': (', hash = 'xxxx'] = match[1].split(' ')
-    const summary = match[2] + match[3]
-
-    const [changed = '0 changed', insertion = '0 insertion', deletion = '0 deletion'] = output[1].split(',')
-
-    return [
-      { Branch: [branch] },
-      { Hash: [hash] },
-      { Summary: [summary] },
-      { Changed: [changed] },
-      { Insertion: [insertion] },
-      { Deletion: [deletion] },
-    ]
-
   }
 
 }
