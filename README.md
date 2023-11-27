@@ -16,7 +16,9 @@ I hate when I have to configure a new computer after a Linux fresh install. I ab
 
 Some will complain that I made it using Node.JS instead of pure Bash, creating those super cool UI on the command line like a true gigachad. To those, I must say that I am sorry, but yes, it's made with Node. One day, when I become gigachad, I may translate it to another language.
 
-So, even though it's a program for autoconfiguration of your computer, you must configure Node.JS. You can just copy and past this on your computer:
+(Update from one week later: I'm starting to become a gigachad. My next steps are to use Zenity. You may no longer need to already have Node installed on your computer soon. I gotcha back my brother.)
+
+So, even though it's a program for autoconfiguration of your computer, you must configure Node.JS. You can just copy and past this:
 
 ``` bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
@@ -34,5 +36,6 @@ At last, I'd like to mention that this project was inspired by [Git Conventional
 - Node.JS
 - Bash
 - Some libs such as boxen, commander and cli-table
+- Being a gigachad
 
 ***
